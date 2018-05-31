@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dubidubi.dao.base.UserMapper">
+	<select id="getPasswordByAccount" parameterType="string"
+		resultType="string">
+		select password from sys_user where account = #{v};
+	</select>
+
+	<select id="getUserDOByAccount" parameterType="string"
+		resultType="cn.dubidubi.model.base.UserDO">
+		select id,username,enabled,remark,agency,mail,phone from
+		sys_user where account = #{v};
+	</select>
+
+	<update id="updateUserByAccount" parameterType="cn.dubidubi.model.dto.ClientUserDTO">
+		update sys_user
+		<set>
+			mail =#{mail},agency
+			=#{department},agency_id=#{departmentId},username =#{name},password
+			=#{password},account =#{account}
+		</set>
+		where account =#{oldAccount}
+	</update>
+
+	<delete id="delOneByAccount" parameterType="String">
+		delete from sys_user
+		where
+		account =#{v};
+	</delete>
+
+	<update id="updateDepartmentByDepId" parameterType="cn.dubidubi.model.DepartmentInfo">
+		update sys_user
+		<set>
+			agency =#{departmentName}
+		</set>
+		where agency_id =#{id}
+	</update>
+
+</mapper>
