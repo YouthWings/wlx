@@ -22,7 +22,7 @@
                 /static/** =anon
                 /login/** =anon
                 /logout.do = logout
-                /** = authc
+                /** = anon
             </value>
         </property>
     </bean>
