@@ -7,8 +7,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select roleId from sys_user_role where userId =#{v};
 	</select>
 
-	<insert id="addUserRole" parameterType="cn.dubidubi.model.dto.AddRoleDTO">
-		insert
-		sys_user_role(userId,roleId) values(#{userId},#{roleId});
-	</insert>
+
 </mapper>

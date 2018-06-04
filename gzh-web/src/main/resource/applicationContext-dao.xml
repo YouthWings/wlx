@@ -53,7 +53,7 @@
         </property>
     </bean>
     <!-- 自动扫描mapper.xml与接口 需要名字完全一样 需更改 -->
-    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="cn.dubidubi.dao"></property>
     </bean>
 </beans>
