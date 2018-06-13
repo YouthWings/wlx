@@ -6,9 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="gzh-biz" />
         <module name="gzh-web" />
         <module name="gzhbiz" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gzh-biz" target="1.8" />
+      <module name="gzh-web" target="1.8" />
+      <module name="wlx" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
