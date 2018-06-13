@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dubidubi.dao.vx.ShareMapper">
+    <resultMap id="share" type="cn.dubidubi.model.vx.ShareUrl">
+        <id column="id" property="id"></id>
+        <result column="url"  property="url"></result>
+        <result column="state"  property="state"></result>
+        <result column="contentType"  property="contentType"></result>
+    </resultMap>
+    <!--插入对象-->
+    <insert id="insertShare" parameterType="cn.dubidubi.model.vx.ShareUrl">
+        INSERT INTO
+          `share` (url, state,contentType)
+        VALUES
+            (#{shareUrl.url}, #{shareUrl.state},#{shareUrl.contentType});
+    </insert>
+    <!--根据状态和id查询-->
+    <select id="selectShareByState" resultMap="share">
+        SELECT
+            id,
+            url,
+            state,
+        contentType
+        FROM
+            share
+        <where>
+            <if test="state!=null">
+                AND state=#{state}
+            </if>
+            <if test="id!=null">
+                AND id=#{id}
+            </if>
+        </where>
+    </select>
+    <!--根据给的id state 修改 状态-->
+    <update id="uodateShareState">
+      UPDATE
+        share
+      SET
+        state = #{state}
+      WHERE
+        id = #{id};
+    </update>
+    <!--根据id删除-->
+    <delete id="deleteShareByid">
+        DELETE
+        FROM
+          share
+        WHERE
+          id=#{id}
+    </delete>
+</mapper>

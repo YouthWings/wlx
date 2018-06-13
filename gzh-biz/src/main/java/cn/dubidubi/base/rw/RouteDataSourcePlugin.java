@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @Auther: 16224
  * @Date: 2018/5/9 0009 13:20
- * @Description:mybatis的拦截器，依据sql语句，选择库，并将库传入spring的source路由，有路由去获得指定的源
+ * @Description:mybatis的拦截器，依据sql语句，选择库，并将库传入spring的source路由，由路由去获得指定的源
  */
 @Intercepts({
         @Signature(type = Executor.class, method = "update", args = {

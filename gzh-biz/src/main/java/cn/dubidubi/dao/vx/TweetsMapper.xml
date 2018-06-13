@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dubidubi.dao.vx.TweetsMapper">
+    <resultMap id="tweets" type="cn.dubidubi.model.vx.Tweets">
+        <id column="id" property="id"></id>
+        <result column="url"  property="url"></result>
+        <result column="title"  property="title"></result>
+        <result column="content"  property="content"></result>
+        <result column="img"  property="img"></result>
+        <result column="author"  property="author"></result>
+        <result column="state"  property="state"></result>
+        <result column="urltype"  property="urltype"></result>
+    </resultMap>
+    <select id="getTweets" resultMap="tweets" >
+        SELECT
+        id,
+        url,
+        title,
+        content,
+        img,
+        author,
+        state,
+        urltype
+        FROM
+        tweets
+       <where>
+           <if test="id!=null">
+               AND id=#{id}
+           </if>
+           <if test="state!=null">
+               AND state=#{state}
+           </if>
+           <if test="type!=null">
+               AND urltype=#{type}
+           </if>
+       </where>
+    </select>
+    <insert id="insertTweets" parameterType="cn.dubidubi.model.vx.Tweets">
+        INSERT INTO tweets (
+            url,
+            title,
+            content,
+            author,
+            state,
+            urltype,
+            img
+        )
+        VALUES
+            (
+                #{tweets.url},
+                #{tweets.title},
+                #{tweets.content},
+                #{tweets.author},
+                #{tweets.state},
+                #{tweets.urltype},
+                #{tweets.img}
+	      );
+    </insert>
+    <update id="updateState">
+        UPDATE
+          tweets
+        SET
+          state = #{state}
+        WHERE
+            id = #{id};
+    </update>
+    <delete id="deleteTweets">
+        DELETE
+        FROM
+            tweets
+        WHERE
+            id = #{id};
+    </delete>
+</mapper>
