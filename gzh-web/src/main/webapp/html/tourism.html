@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/weui.css">
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/jquery-weui.css">
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/demos.css">
+
+</head>
+<body>
+<div class="weui-panel weui-panel_access">
+    <div class="weui-panel__bd">
+        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+            <div class="weui-media-box__hd">
+                <img class="weui-media-box__thumb" src="/WeChat/image/carpooling.jpg">
+            </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">标题一</h4>
+                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+            </div>
+        </a>
+        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+            <div class="weui-media-box__hd">
+                <img class="weui-media-box__thumb" src="/WeChat/image/carpooling.jpg    ">
+            </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">标题二</h4>
+                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="/WeChat/js/fastclick.js"></script>
+<script type="text/javascript" src="/WeChat/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/WeChat/js/jquery-weui.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+        var formObject={};
+        formObject["type"]="2";
+        formObject["state"]=1;
+        //获取链接
+        $.ajax({
+            type:'POST',
+            url:'/WeChat/operation/getTweets.do',
+            dataType:'text',
+            contentType:'application/json;charset=UTF-8',
+            data:JSON.stringify(formObject),//json对象转为json字符串
+            success:function (data) {
+                var jsonObject =eval(data);
+                for(var i=0;i<jsonObject.length;i++){
+                    var $parent=$(".weui-panel__bd");
+                    var $a=$("<a></a>");
+                    $a.attr("href",jsonObject[i].url    );
+                    $a.attr("class","weui-media-box weui-media-box_appmsg");
+
+                    var $adiv1=$("<div></div>");
+                    $adiv1.attr("class","weui-media-box__hd")
+                    var $img=$("<img>");
+                    $img.attr("class","weui-media-box__thumb");
+                    $img.attr("src",jsonObject[i].img);
+                    $adiv1.append($img);
+
+                    var $adiv2=$("<div></div>");
+                    $adiv2.attr("class","weui-media-box__bd");
+                    var $h4=$("<h4></h4>");
+                    $h4.attr("class","weui-media-box__title");
+                    $h4.html(jsonObject[i].title);
+                    var $p=$("<p></p>");
+                    $p.attr("class","weui-media-box__desc");
+                    $p.html(jsonObject[i].content);
+                    $adiv2.append($h4);
+                    $adiv2.append($p);
+
+                    $a.append($adiv1);
+                    $a.append($adiv2);
+                    $parent.append($a);
+                }
+            },
+            error:function () {
+                alert("失败");
+            }
+        });
+        //增加访问量
+        var formObject={};
+        formObject["key"]="tourism";
+        $.ajax({
+            type:'POST',
+            url:'/WeChat/operation/setViewNum.do',
+            dataType:'text',
+            contentType:'application/json;charset=UTF-8',
+            data:JSON.stringify(formObject),//json对象转为json字符串
+            success: function () {
+
+            },
+            error:function () {
+                alert("失败");
+            }
+        });
+    })
+</script>
+</body>
+</html>

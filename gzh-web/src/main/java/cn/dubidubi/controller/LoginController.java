@@ -35,11 +35,11 @@ public class LoginController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // 默认跳转路径
-    private static final String defaultPath = "redirect:/index.html";
+    private static final String defaultPath = "redirect:/main.html";
     // 认证失败的跳转路径
     private static final String defeatPath = "redirect:/login.html";
     // 默认跳转ajax路径
-    private static final String defaultPath_ajax = "/index.html";
+    private static final String defaultPath_ajax = "/main.html";
 
     /**
      * @return ajax返回值对象
@@ -93,7 +93,7 @@ public class LoginController {
         if (URL != null) {
             int URLStart = URL.indexOf("/", 1);
             String realURL = URL.substring(URLStart, URL.length());
-            if (realURL.indexOf("login.html") >= 0 || realURL.indexOf("index.html") < 0) {
+            if (realURL.indexOf("login.html") >= 0 || realURL.indexOf("main.html") < 0) {
                 ajaxResultDTO.setUrl(defaultPath_ajax);
             } else
                 ajaxResultDTO.setUrl(realURL);

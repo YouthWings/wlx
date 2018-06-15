@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/weui.css">
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/jquery-weui.css">
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/demos.css">
+    <style>
+        *{padding: 0;margin: 0}
+        .bar{
+            position: fixed;
+            right: 0;
+            left:0;
+            top:0;
+            z-index: 10;
+            background: #ffffff;
+            color: white;
+            padding-right: .5rem;
+            padding-left: .5rem;
+            height: 2.2rem;
+        }
+        .title{
+            position: absolute;
+            display: block;
+            width:100%;
+            margin: 0 -.5rem;
+            font-size: .95rem;
+            font-weight: 500;
+            line-height: 2.2rem;
+            color: #FFFFFF;
+            text-align: center;
+        }
+        .title{
+            color: #999999;
+        }
+    </style>
+
+</head>
+<body style="background-color: #EEEEEE">
+
+<div class="weui-tab">
+    <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+            <div class="weui-search-bar" id="searchBar">
+                <form class="weui-search-bar__form">
+                    <div class="weui-search-bar__box">
+                        <i class="weui-icon-search"></i>
+                        <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+                        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                    </div>
+                    <label class="weui-search-bar__label" id="searchText">
+                        <i class="weui-icon-search"></i>
+                        <span>搜索</span>
+                    </label>
+                </form>
+                <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+            </div>
+            <div class="weui-panel__bd" style="background-color: white">
+                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="/WeChat/image/touxiang.jpg">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">发起人:#1212</h4>
+                        <p class="weui-media-box__desc">出发地：浙江万里学院  目的地：宁波火车站</p>
+                    </div>
+                </a>
+                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="/WeChat/image/touxiang.jpg">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">发起人:#1212</h4>
+                        <p class="weui-media-box__desc">出发地：浙江万里学院  目的地：宁波火车站</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="tab2" class="weui-tab__bd-item">
+            <div class="bar bra-nav">
+                <h1 class="title">与我相关</h1>
+            </div>
+
+            <div class="weui-cells">
+                <div style="width: 100%;height: 2rem;background-color: #EEEEEE"></div>
+
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div id="tab3" class="weui-tab__bd-item">
+            <div class="bar bra-nav">
+                <h1 class="title">我</h1>
+            </div>
+            <div style="width: 100%;height: 2rem;background-color: #EEEEEE"></div>
+            <div class="weui-panel weui-panel_access">
+                <div class="weui-panel__bd">
+                    <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                        <div class="weui-media-box__hd">
+                            <img class="weui-media-box__thumb" src="/WeChat/image/touxiang.jpg">
+                        </div>
+                        <div class="weui-media-box__bd">
+                            <h4 class="weui-media-box__title">#1212</h4>
+                            <p class="weui-media-box__title">所在地：宁波市</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>我要拼车</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>历史拼车记录</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="weui-tabbar">
+        <a href="#tab1" class="weui-tabbar__item weui-bar__item--on" id="a1">
+            <div class="weui-tabbar__icon">
+                <img src="/WeChat/image/carpooling.jpg" alt="">
+            </div>
+            <p class="weui-tabbar__label">订单广场</p>
+        </a>
+        <a href="#tab2" class="weui-tabbar__item">
+            <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+            <div class="weui-tabbar__icon">
+                <img src="/WeChat/image/carpooling.jpg" alt="">
+            </div>
+            <p class="weui-tabbar__label">与我相关</p>
+        </a>
+        <a href="#tab3" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon">
+                <img src="/WeChat/image/carpooling.jpg" alt="">
+            </div>
+            <p class="weui-tabbar__label">我</p>
+        </a>
+
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="/WeChat/js/fastclick.js"></script>
+<script type="text/javascript" src="/WeChat/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/WeChat/js/jquery-weui.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+        var formObject={};
+        formObject["key"]="carpooling";
+        $.ajax({
+            type:'POST',
+            url:'/WeChat/operation/setViewNum.do',
+            dataType:'text',
+            contentType:'application/json;charset=UTF-8',
+            data:JSON.stringify(formObject),//json对象转为json字符串
+            success: function (data) {
+                alert("成功");
+            },
+            error:function () {
+                alert("失败");
+            }
+        });
+    })
+</script>
+</body>
+</html>

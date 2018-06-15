@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/weui.css">
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/jquery-weui.css">
+    <link rel="stylesheet" type="text/css" href="/WeChat/css/demos.css">
+</head>
+<body>
+<style>
+    *{padding: 0;margin: 0}
+    .bar{
+        position: fixed;
+        right: 0;
+        left:0;
+        top:0;
+        z-index: 10;
+        background: #0993c7;
+        color: white;
+        padding-right: .5rem;
+        padding-left: .5rem;
+        height: 2.2rem;
+    }
+    .title{
+        position: absolute;
+        display: block;
+        width:100%;
+        margin: 0 -.5rem;
+        font-size: .95rem;
+        font-weight: 500;
+        line-height: 2.2rem;
+        color: #FFFFFF;
+        text-align: center;
+    }
+    .titles{
+        padding-top: 2.2rem;
+        color: #999999;
+    }
+</style>
+<div class="bar bra-nav">
+    <h1 class="title">熊服务</h1>
+</div>
+<div class="weui_cells_title titles">热门功能</div>
+<div class="weui-grids">
+    <a  class="weui-grid js_grid" id="a1">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/vx_1.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            分享到qq
+        </p>
+    </a>
+    <a href="" class="weui-grid js_grid" id="a2">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/supermarket.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            超市
+        </p>
+    </a>
+    <a href="/WeChat/html/tourism.html" class="weui-grid js_grid" id="a3">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/tourism.ico" alt="">
+        </div>
+        <p class="weui-grid__label">
+            旅游
+        </p>
+    </a>
+    <a href="" class="weui-grid js_grid" id="a4">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/icon_tabbar.png" alt="">
+        </div>
+        <p class="weui-grid__label">
+            待定
+        </p>
+    </a>
+    <a href="" class="weui-grid js_grid" id="a5">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/examination.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            考证
+        </p>
+    </a>
+    <a href="/WeChat/html/carpooling.html" class="weui-grid js_grid" id="a6">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/carpooling.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            拼车
+        </p>
+    </a>
+    <a href="" class="weui-grid js_grid" id="a7">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/pa.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            轰趴
+        </p>
+    </a>
+    <a href="" class="weui-grid js_grid" id="a8">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/timetable.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            课表
+        </p>
+    </a>
+    <a href="" class="weui-grid js_grid" id="a9">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/achievement.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            查成绩
+        </p>
+    </a>
+    <a href="" class="weui-grid js_grid" id="a10">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/run.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            跑腿
+        </p>
+    </a>
+    <a href="" class="weui-grid js_grid" id="a11">
+        <div class="weui-grid__icon">
+            <img src="/WeChat/image/market.jpg" alt="">
+        </div>
+        <p class="weui-grid__label">
+            集市
+        </p>
+    </a>
+
+</div>
+
+
+<script type="text/javascript" src="/WeChat/js/fastclick.js"></script>
+<script type="text/javascript" src="/WeChat/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/WeChat/js/jquery-weui.js"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+        var formObject={};
+        formObject["state"]=1;
+        $.ajax({
+            type:'POST',
+            url:'/WeChat/shareOperation/getShareOne.do',
+            dataType:'text',
+            contentType:'application/json;charset=UTF-8',
+            data:JSON.stringify(formObject),//json对象转为json字符串
+            success:function (data) {
+                var jsonObJect=eval(data);
+                $("#a1").attr("href",jsonObJect[0].url);
+
+            } ,
+            error:function () {
+                alert("失败");
+            }
+        });
+    })
+</script>
+</body>
+</html>
